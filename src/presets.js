@@ -43,23 +43,22 @@ const getItemProps = ({ item, props }: RenderProps) => {
   };
 };
 
-export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
+export const SingleColumnLeft = ({ item, index, props, onEventPress }: RenderProps) => {
   const { lineColor, lineWidth, circleColor, dotColor } = getItemProps({ item, index, props });
-
   return (
     <Row>
       <VerticalSeparator>
-        <Line color={lineColor} width={lineWidth} />
-        <Circle color={circleColor}>
-          <Dot color={dotColor} />
-        </Circle>
+          <Circle color={circleColor}>
+            <Dot color={dotColor} />
+          </Circle>
+        {props.data.length - 1 !== index && <Line color={lineColor} width={lineWidth} />}
       </VerticalSeparator>
-      <Event style={{ marginHorizontal: 2 }}>
-        <View style={{ flexDirection: 'row'}}>
-          <Title textStyle={{ flex: 1 }}>{item.HoTenNguoiHoi}</Title>
-          <Title textStyle={{ textAlign: 'right' }}>{item.NgayTao}</Title>
+      <Event style={{ marginHorizontal: 10 }} onEventPress={onEventPress.bind(null, item)}>
+        <View style={{ flexDirection: 'row' }}>
+          <Title textStyle={{ flex: 1, color: 'black' }}>{item.HoTenNguoiHoi}</Title>
+          <Title textStyle={{ textAlign: 'right', color: 'silver' }}>{item.NgayTao}</Title>
         </View>
-        <Title>{item.Ten}</Title>
+        <Title textStyle={{ color: 'gray' }}>{item.Ten}</Title>
         <Description textStyle={{ marginBottom: 15 }}>{item.NoiDungText}</Description>
       </Event>
     </Row>

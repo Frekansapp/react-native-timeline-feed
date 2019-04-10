@@ -15,7 +15,8 @@ export type TimelineProps = {
   circleColor: string,
   dotColor: string,
   preset?: Preset,
-  renderFeedItem?: RenderProps => React.Element<any>
+  renderFeedItem?: RenderProps => React.Element<any>,
+  onEventPress?: (any) => void
 };
 
 export type Item = {
@@ -40,7 +41,8 @@ export type FlatListItemProps = {
 export type RenderProps = {
   item: Item,
   index: number,
-  props: TimelineProps
+  props: TimelineProps,
+  onEventPress: function
 };
 
 export type RowProps = {
@@ -56,7 +58,8 @@ export type TimeProps = {
 
 export type EventProps = {
   children?: React.Node,
-  style?: ViewStyleProp
+  style?: ViewStyleProp,
+  onEventPress?: function
 };
 
 export type TitleProps = {

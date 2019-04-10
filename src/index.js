@@ -80,7 +80,7 @@ class Timeline extends React.Component<TimelineProps> {
       return null;
     }
 
-    return <Component {...renderProps} />;
+    return <Component {...renderProps} onEventPress={props.onEventPress}/>;
   };
 }
 

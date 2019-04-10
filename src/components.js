@@ -31,8 +31,8 @@ export function Time({ children, style, textStyle }: TimeProps) {
   );
 }
 
-export function Event({ children, style }: EventProps) {
-  return <View style={[styles.eventContainer, style]}>{children}</View>;
+export function Event({ children, style, onEventPress }: EventProps) {
+  return <TouchableOpacity onPress={onEventPress}style={[styles.eventContainer, style]}>{children}</TouchableOpacity>;
 }
 
 export function Title({ children, textStyle }: TitleProps) {
@@ -46,7 +46,7 @@ export function Title({ children, textStyle }: TitleProps) {
 export function Description({ children, textStyle }: DescriptionProps) {
   return (
     <>
-      <Text style={[styles.descriptionText, textStyle]}>{children}</Text>
+      <Text numberOfLines={3} style={[styles.descriptionText, textStyle]}>{children}</Text>
     </>
   );
 }
