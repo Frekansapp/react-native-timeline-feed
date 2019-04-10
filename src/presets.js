@@ -4,7 +4,7 @@
  **/
 
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { type RenderProps } from './types';
 
@@ -54,13 +54,14 @@ export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
           <Dot color={dotColor} />
         </Circle>
       </VerticalSeparator>
-      <Event>
-
-        <Title>{item.HoTenNguoiHoi}</Title>
-        <Title>{item.NgayTao}</Title>
-        <Description>{item.NoiDungText}</Description>
+      <Event style={{ marginHorizontal: 2 }}>
+        <View style={{ flexDirection: 'row'}}>
+          <Title textStyle={{ flex: 1 }}>{item.HoTenNguoiHoi}</Title>
+          <Title textStyle={{ textAlign: 'right' }}>{item.NgayTao}</Title>
+        </View>
+        <Title>{item.Ten}</Title>
+        <Description textStyle={{ marginBottom: 15 }}>{item.NoiDungText}</Description>
       </Event>
-      <Time time={item.NgayTao} />
     </Row>
   );
 };
