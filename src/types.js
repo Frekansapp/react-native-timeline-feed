@@ -26,7 +26,10 @@ export type Item = {
   lineColor?: string,
   circleColor?: string,
   dotColor?: string,
-  test?: string,
+  HoTenNguoiHoi?: string,
+  Ten?: string,
+  NgayTao?:string,
+  NoiDungText?:string
 };
 
 export type FlatListItemProps = {

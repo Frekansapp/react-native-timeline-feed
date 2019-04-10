@@ -24,7 +24,7 @@ import {
   VerticalSeparator,
   Line,
   Circle,
-  Dot
+  Dot,
 } from './components';
 
 const getItemProps = ({ item, props }: RenderProps) => {
@@ -48,7 +48,6 @@ export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
 
   return (
     <Row>
-      <Time time={item.time} />
       <VerticalSeparator>
         <Line color={lineColor} width={lineWidth} />
         <Circle color={circleColor}>
@@ -56,9 +55,12 @@ export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
         </Circle>
       </VerticalSeparator>
       <Event>
-        <Title>{item.title}</Title>
-        <Description>{item.description}</Description>
+
+        <Title>{item.HoTenNguoiHoi}</Title>
+        <Title>{item.NgayTao}</Title>
+        <Description>{item.NoiDungText}</Description>
       </Event>
+      <Time time={item.NgayTao} />
     </Row>
   );
 };
