@@ -25,7 +25,8 @@ export type Item = {
   lineWidth?: number,
   lineColor?: string,
   circleColor?: string,
-  dotColor?: string
+  dotColor?: string,
+  test?: string,
 };
 
 export type FlatListItemProps = {
