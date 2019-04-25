@@ -24,9 +24,10 @@ import {
   VerticalSeparator,
   Line,
   Circle,
-  Dot,
+  Dot
 } from './components';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import colors from '../../../src/functions/colorSheme';
 const getItemProps = ({ item, props }: RenderProps) => {
   const lineColor = item.lineColor || props.lineColor || DEFAULT_LINE_COLOR;
   const lineWidth = item.lineWidth || props.lineWidth || DEFAULT_LINE_WIDTH;
@@ -43,23 +44,32 @@ const getItemProps = ({ item, props }: RenderProps) => {
   };
 };
 
-export const SingleColumnLeft = ({ item, index, props, onEventPress }: RenderProps) => {
+export const SingleColumnLeft = ({ item, index, props }: RenderProps) => {
   const { lineColor, lineWidth, circleColor, dotColor } = getItemProps({ item, index, props });
+
   return (
     <Row>
       <VerticalSeparator>
-          <Circle color={circleColor}>
-            <Dot color={dotColor} />
-          </Circle>
-        {props.data.length - 1 !== index && <Line color={lineColor} width={lineWidth} />}
-      </VerticalSeparator>
-      <Event style={{ marginHorizontal: 10 }} onEventPress={onEventPress.bind(null, item)}>
-        <View style={{ flexDirection: 'row' }}>
-          <Title textStyle={{ flex: 1, color: 'black' }}>{item.HoTenNguoiHoi}</Title>
-          <Title textStyle={{ textAlign: 'right', color: 'silver' }}>{item.NgayTao}</Title>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingLeft: 5 }} >
+
+          <View style={{ backgroundColor: 'white', borderWidth: 1, borderColor: '#ddd', padding: 3, borderRadius: 3, marginRight: 5 }} >
+            <Time>{item.time}</Time>
+
+          </View>
+
+          <View style={{ width: 30, alignItems: 'center', justifyContent: 'center', height: 30, borderRadius: 50, borderWidth: 3, borderColor: "gray" }} >
+            <FontAwesome color="gray" size={18} name={item.icon} />
+          </View>
         </View>
-        <Title textStyle={{ color: 'gray' }}>{item.Ten}</Title>
-        <Description textStyle={{ marginBottom: 15 }}>{item.NoiDungText}</Description>
+        <Line style={{ marginLeft: 70, borderRadius: 3 }} color={lineColor} width={3} />
+
+
+
+      </VerticalSeparator>
+      <Event style={{ marginLeft: 10,marginBottom:10,marginRight:5,backgroundColor:'white',padding:8,borderRadius:6,elevation:1 }} >
+       
+        <Title textStyle={{marginTop:0}} >{item.title}</Title>
+        <Description >{item.description}</Description>
       </Event>
     </Row>
   );
@@ -80,7 +90,7 @@ export const SingleColumnRight = ({ item, index, props }: RenderProps) => {
           <Dot color={dotColor} />
         </Circle>
       </VerticalSeparator>
-      <Time time={item.time} />
+      <Time>{item.time}</Time>
     </Row>
   );
 };
