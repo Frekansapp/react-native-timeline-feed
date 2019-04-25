@@ -31,8 +31,8 @@ export function Time({ children, style, textStyle }: TimeProps) {
   );
 }
 
-export function Event({ children, style, onEventPress }: EventProps) {
-  return <TouchableOpacity onPress={onEventPress}style={[styles.eventContainer, style]}>{children}</TouchableOpacity>;
+export function Event({ children, style }: EventProps) {
+  return <View style={[styles.eventContainer, style]}>{children}</View>;
 }
 
 export function Title({ children, textStyle }: TitleProps) {
@@ -46,7 +46,7 @@ export function Title({ children, textStyle }: TitleProps) {
 export function Description({ children, textStyle }: DescriptionProps) {
   return (
     <>
-      <Text numberOfLines={3} style={[styles.descriptionText, textStyle]}>{children}</Text>
+      <Text style={[styles.descriptionText, textStyle]}>{children}</Text>
     </>
   );
 }
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   timeContainer: {
+    alignItems:'center',
     flex: 0.1,
     minWidth: 45
   },
@@ -85,8 +86,6 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     backgroundColor: 'black',
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
     marginHorizontal: 8
   },
   circleContainer: {
