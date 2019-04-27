@@ -55,6 +55,7 @@ class Timeline extends React.Component<TimelineProps> {
       <FlatList
         automaticallyAdjustContentInsets={false}
         {...otherProps}
+        keyExtractor={(item, index) => String(index)}
         renderItem={this.renderItem}
       />
     );
@@ -80,7 +81,7 @@ class Timeline extends React.Component<TimelineProps> {
       return null;
     }
 
-    return <Component {...renderProps} onEventPress={props.onEventPress}/>;
+    return <Component {...renderProps} />;
   };
 }
 
