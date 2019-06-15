@@ -27,7 +27,6 @@ import {
   Dot
 } from './components';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import colors from '../../../src/functions/colorSheme';
 const getItemProps = ({ item, props }: RenderProps) => {
   const lineColor = item.lineColor || props.lineColor || DEFAULT_LINE_COLOR;
   const lineWidth = item.lineWidth || props.lineWidth || DEFAULT_LINE_WIDTH;
